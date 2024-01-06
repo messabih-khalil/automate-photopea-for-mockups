@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Photopea Integration Example</title>
+    </head>
+    <body>
+        <iframe
+            id="photopeaFrame"
+            width="100%"
+            height="600"
+            frameborder="0"
+        ></iframe>
+
+        <script>
+            // Your JSON configuration object
+            const photopeaConfig = {
+                files: [
+                    'https://filebin.net/ed4vo34oktiveibt/mug_1.psd',
+                ],
+            };
+
+            // Encode the JSON configuration object
+            const encodedConfig = encodeURIComponent(
+                JSON.stringify(photopeaConfig)
+            );
+
+            // Construct the Photopea URL with the encoded configuration
+            const photopeaURL = `https://www.photopea.com/#${encodedConfig}`;
+
+            // Set the iframe source to the Photopea URL
+            const photopeaFrame = document.getElementById('photopeaFrame');
+            photopeaFrame.src = photopeaURL;
+        </script>
+    </body>
+</html>
